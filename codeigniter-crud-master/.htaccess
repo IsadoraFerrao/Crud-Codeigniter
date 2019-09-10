@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+AddType font/eot .eot
+AddType font/otf .otf
+AddType font/woff .woff
+AddType font/ttf .ttf
+AddType font/svg .svg
+
+<FilesMatch "\.(eot|otf|woff|ttf|svg)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
